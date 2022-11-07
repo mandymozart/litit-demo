@@ -8,6 +8,14 @@
     <meta name="description" content="LIT IT Demo" />
     <meta name="author" content="Mandy Mozart" />
 
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/dayjs.min.js"
+      integrity="sha512-hcV6DX35BKgiTiWYrJgPbu3FxS6CsCjKgmrsPRpUPkXWbvPiKxvSVSdhWX0yXcPctOI2FJ4WP6N1zH+17B/sAA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="stylesheet" href="https://litit.netlify.app/cdn/litit.css" />
+
     <style>
       @font-face {
         font-family: "PlayfairDisplay-Regular";
@@ -27,6 +35,24 @@
         --color: #000;
         --second: red;
         --background: #efefef;
+
+        --color-primary-0: #fff8f6;
+        --color-primary-1: #ffd0c4;
+        --color-primary-2: #ffe1d9;
+        --color-primary-3: #fff0ec;
+        --color-primary-4: #e9d7d3;
+
+        --color-secondary-1-0: #d2d7d9;
+        --color-secondary-1-1: #859fab;
+        --color-secondary-1-2: #a6b8c1;
+        --color-secondary-1-3: #9aa2a6;
+        --color-secondary-1-4: #868f93;
+
+        --color-secondary-2-0: #f1f5ed;
+        --color-secondary-2-1: #d1eab4;
+        --color-secondary-2-2: #dfefcc;
+        --color-secondary-2-3: #e1e8d7;
+        --color-secondary-2-4: #cad3bf;
 
         /* Fonts */
         --copy: -apple-system, --system, BlinkMacSystemFont, "Segoe UI",
@@ -92,11 +118,16 @@
 
       code {
         font-family: var(--source);
+        background-color: var(--color-primary-1);
+      }
+      pre {
+        padding: 1rem;
+        background-color: var(--color-primary-1);
       }
       p {
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
       }
-      .notification {
+      .header-notification {
         font-size: 0.8rem;
         /* border-bottom: 1px solid var(--color); */
         text-align: center;
@@ -152,45 +183,46 @@
         padding: 4rem;
         text-align: center;
       }
-      section,
-      .meta,
-      .reader {
+      section {
+        width: 100vw;
+      }
+      section.shade1 {
+        background-color: var(--color-secondary-1-0);
+        padding: 1rem 0;
+      }
+      section.shade2 {
+        background-color: var(--color-secondary-1-1);
+        padding: 1rem 0;
+      }
+      section.shade3 {
+        background-color: var(--color-secondary-1-2);
+        padding: 1rem 0;
+      }
+      section > div {
         margin: 0 auto;
         padding: 0 1rem;
         width: calc(var(--content-width) - 2rem);
       }
 
-      .hero {
+      .hero > div {
         display: flex;
         height: 60vh;
         align-items: center;
         gap: 5rem;
         justify-content: center;
-    }
-    .hero p {margin-bottom: 1rem;}
-    .hero h2, .hero h3, .hero h1 {
+      }
+      .hero p {
         margin-bottom: 1rem;
-    }
-
-      /* Page:Texts */
-
-      .text-list {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        gap: 1rem;
       }
-      .text-item {
-        background-color: var(--background);
-      }
-      .text-item img {
-        max-width: 100%;
-        display: flex;
-        flex-direction: row;
-      }
-      .text-item h2 {
-        margin-top: 0;
-        font-size: 1.5rem;
+      .hero h2,
+      .hero h3,
+      .hero h1 {
         margin-bottom: 1rem;
+      }
+
+      /* litit section */
+      .client-info {
+        padding: 2rem 0;
       }
 
       /* Page:Detail */
@@ -266,7 +298,7 @@
   </head>
 
   <body>
-    <div class="notification">
+    <div class="header-notification">
       <span
         >This page is for demonstration purposes only. Fork on Github to start
         your project.</span
@@ -311,58 +343,82 @@
     <main>
       <section class="hero">
         <div>
-          <h1>Your health is our daily bread, whereever you are.</h1>
-          <p>Digital healthcare 24/7</p>
-          <button>GET STARTED</button>
+          <div>
+            <h1>Your health is our daily bread, whereever you are.</h1>
+            <p>Digital healthcare 24/7</p>
+            <button>GET STARTED</button>
+          </div>
+          <div>
+            <img src="images/illustration.png" alt="We care" />
+          </div>
         </div>
+      </section>
+
+      <section class="client-info">
         <div>
-          <img src="images/illustration.png" alt="We care" />
+          <div data-litit="litit-demo.netlify.app"></div>
+          <script src="https://litit.netlify.app/cdn/litit.js"></script>
+        </div>
+      </section>
+
+      <section class="shade1">
+        <div>
+          <a name="HowItWorks"> </a>
+          <h2>How it works</h2>
+          <h3>1. Choose your plan</h3>
+          <p>Get started at https://litit.netlify.app</p>
+          <h3>2. Get your widget</h3>
+          <p>
+            Copy and paste from the dashboard at
+            https://litit-studio.netlify.app
+          </p>
+          <h3>3. Add to page</h3>
+          <p>Than copy and paste this widget anywhere on the page you like.</p>
+          <pre><code
+            >&lt;div data-litit=&quot;litit-demo.netlify.app&quot;>&lt;/div&gt;
+&lt;script src=&quot;https://litit.netlify.app/cdn/litit.js&quot;>&lt;/script&gt;</code
+          ></pre>
+          <p>
+            Make sure you replace the <code>data-litit</code> attribute with
+            your <code>DOMAIN_KEY</code>. 
+          </p>
+          <p>If you want to use our presets, copy the stylesheet to your HTML header (optional):</p>
+          <pre><code
+              >&lt;link rel=&quot;stylesheet&quot; href=&quot;https://litit.netlify.app/cdn/litit.css&quot;&gt;</code
+            ></pre>
         </div>
       </section>
 
       <section>
-        <div data-litit="litit-demo.netlify.app"></div>
-        <script src="litit.js"></script>
-      </section>
-
-      <section>
-        <a name="HowItWorks"> </a>
-        <h2>How it works</h2>
-        <h3>1. Choose your plan</h3>
-        <p>Get started at https://litit.netlify.app</p>
-        <h3>2. Get your widget</h3>
-        <p>
-          Copy and paste from the dashboard at https://litit-studio.netlify.app
-        </p>
-        <h3>3. Add to page</h3>
-        <p>The widget requries only 2 lines of code to work. Make sure to</p>
-        <code>Example code</code>
-      </section>
-
-      <section>
-        <a name="services"></a>
-        <h2>More Services</h2>
-        <p>Your complete online practise.</p>
-      </section>
-
-      <section class="hero">
         <div>
-          <img src="images/pregnant.png" alt="We birth" />
-        </div>
-        <div>
-          <h3>Birth Prep Service</h3>
-          <p>Startup your kid</p>
-          <button>PLAN BIRTH</button>
+          <a name="services"></a>
+          <h2>More Services</h2>
+          <p>Your complete online practise.</p>
         </div>
       </section>
-      <section class="hero">
+
+      <section class="hero shade2">
         <div>
-          <h3>Your file at your request</h3>
-          <p>Easy transcripts</p>
-          <button>SIGNUP</button>
+          <div>
+            <img src="images/pregnant.png" alt="We birth" />
+          </div>
+          <div>
+            <h3>Birth Prep Service</h3>
+            <p>Startup your kid</p>
+            <button>PLAN BIRTH</button>
+          </div>
         </div>
+      </section>
+      <section class="hero shade3">
         <div>
-          <img src="images/online-health.png" alt="We share" />
+          <div>
+            <h3>Your file at your request</h3>
+            <p>Easy transcripts</p>
+            <button>SIGNUP</button>
+          </div>
+          <div>
+            <img src="images/online-health.png" alt="We share" />
+          </div>
         </div>
       </section>
     </main>
