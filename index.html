@@ -6,6 +6,7 @@
 
     <title>LIT IT Demo</title>
     <meta name="description" content="LIT IT Demo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Mandy Mozart" />
 
     <script
@@ -111,6 +112,25 @@
         letter-spacing: 0.05rem;
         font-size: 2rem;
       }
+      h1 {
+        font-size: 3rem;
+        letter-spacing: 0.1rem;
+        font-weight: 900;
+      }
+      h2 {
+        font-size: 2.5rem;
+        letter-spacing: 0.1rem;
+        font-weight: 900;
+      }
+      h4 {
+        font-size: 1.75rem;
+      }
+      h5 {
+        font-size: 1.5rem;
+      }
+      h6 {
+        font-size: 1rem;
+      }
       b,
       strong {
         font-weight: 400;
@@ -122,6 +142,9 @@
       }
       pre {
         padding: 1rem;
+        white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: justify;
         background-color: var(--color-primary-1);
       }
       p {
@@ -179,6 +202,29 @@
         color: var(--second);
       }
 
+      @media screen and (max-width: 991px) {
+        .hide-lg {
+          display: none !important;
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        .hide-md {
+          /* start of medium tablet styles */
+          display: none !important;
+        }
+        .hero > div {
+          flex-direction: column;
+        }
+      }
+
+      @media screen and (max-width: 479px) {
+        /* start of phone styles */
+        .hide-sm {
+          display: none !important;
+        }
+      }
+
       footer {
         padding: 4rem;
         text-align: center;
@@ -206,7 +252,7 @@
 
       .hero > div {
         display: flex;
-        height: 60vh;
+        min-height: 60vh;
         align-items: center;
         gap: 5rem;
         justify-content: center;
@@ -308,12 +354,12 @@
     <header>
       <div>
         <a class="page-title" href="/">Dr. Malcom</a>
-        <nav class="menu">
+        <nav class="menu hide-md">
           <a href="#HowItWorks" class="active">How it works</a>
           <a href="#services">Services</a>
-          <a href="https://litit.netlify.app">Get your own</a>
+          <a href="https://litit.netlify.app" >Get your own</a>
         </nav>
-        <div class="badge">
+        <div class="badge hide-md">
           <a href="https://github.com/mandymozart/litit-demo" target="_blank">
             <svg
               width="32"
@@ -365,24 +411,22 @@
         <div>
           <a name="HowItWorks"> </a>
           <h2>How it works</h2>
-          <h3>1. Choose your plan</h3>
-          <p>Get started at https://litit.netlify.app</p>
-          <h3>2. Get your widget</h3>
-          <p>
-            Copy and paste from the dashboard at
-            https://litit-studio.netlify.app
-          </p>
-          <h3>3. Add to page</h3>
-          <p>Than copy and paste this widget anywhere on the page you like.</p>
+          <h3>1. Choose a plan</h3>
+          <p>Get started at <a href="https://litit.netlify.app">here</a>.</p>
+          <h3>2. Add widget to page</h3>
+          <p>Than copy and paste this widget code anywhere on your page.</p>
           <pre><code
             >&lt;div data-litit=&quot;litit-demo.netlify.app&quot;>&lt;/div&gt;
 &lt;script src=&quot;https://litit.netlify.app/cdn/litit.js&quot;>&lt;/script&gt;</code
           ></pre>
           <p>
             Make sure you replace the <code>data-litit</code> attribute with
-            your <code>DOMAIN_KEY</code>. 
+            your <code>DOMAIN_KEY</code>.
           </p>
-          <p>If you want to use our presets, copy the stylesheet to your HTML header (optional):</p>
+          <p>
+            If you want to use our presets, copy the stylesheet to your HTML
+            header (optional):
+          </p>
           <pre><code
               >&lt;link rel=&quot;stylesheet&quot; href=&quot;https://litit.netlify.app/cdn/litit.css&quot;&gt;</code
             ></pre>
@@ -393,7 +437,6 @@
         <div>
           <a name="services"></a>
           <h2>More Services</h2>
-          <p>Your complete online practise.</p>
         </div>
       </section>
 
